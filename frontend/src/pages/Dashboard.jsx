@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getMyCredentials, getAllCredentials, issueCredential, deleteCredential } from '../services/api';
+import { getMyCredentials, getAllCredentials, issueCredential, deleteCredential, uploadCertificate } from '../services/api';
 import CredentialCard from '../components/CredentialCard';
 import { Award, Users, FileText, Loader2, Upload } from 'lucide-react';
 import toast from 'react-hot-toast';
@@ -46,24 +46,7 @@ export default function Dashboard({ user }) {
         formData.append('skillName', skillName);
         formData.append('certificateImage', certificateImage);
         
-        const uploadRes = await fetch('http://localhost:5000/api/credentials/upload-certificate', {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            },
-            body: formData
-        });
-        
-        if (!uploadRes.ok) {
-            let errMsg = 'Failed to issue credential';
-            try {
-               const errData = await uploadRes.json();
-               errMsg = errData.message || errMsg;
-            } catch (e) {
-               // Ignore parse error
-            }
-            throw new Error(errMsg);
-        }
+        await uploadCertificate(formData);
       } else {
         await issueCredential(userEmail, skillName);
       }

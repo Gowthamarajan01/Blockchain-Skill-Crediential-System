@@ -3,6 +3,7 @@ import { Download, Share2, Image as ImageIcon, FileText, Trash2 } from 'lucide-r
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { QRCodeSVG } from 'qrcode.react';
+import { API_BASE_URL } from '../services/api';
 
 export default function CredentialCard({ credential, isAdmin, onDelete }) {
   const certificateRef = useRef(null);
@@ -74,7 +75,7 @@ export default function CredentialCard({ credential, isAdmin, onDelete }) {
         {credential.certificateImage ? (
           <div style={{ display: 'flex', gap: '5px', flex: 1 }}>
             <a 
-              href={`http://localhost:5000/${credential.certificateImage}`} 
+              href={`${API_BASE_URL}/${credential.certificateImage}`} 
               target="_blank" 
               rel="noreferrer"
               className="btn" 
@@ -87,7 +88,7 @@ export default function CredentialCard({ credential, isAdmin, onDelete }) {
               )}
             </a>
             <button 
-              onClick={(e) => handleImageDownload(e, `http://localhost:5000/${credential.certificateImage}`, credential.skillName)}
+              onClick={(e) => handleImageDownload(e, `${API_BASE_URL}/${credential.certificateImage}`, credential.skillName)}
               className="btn" 
               style={{ display: 'flex', alignItems: 'center', gap: '5px', flex: 1, justifyContent: 'center', textDecoration: 'none', background: 'var(--primary-color)', cursor: 'pointer', border: 'none', color: 'white' }}
             >
