@@ -28,6 +28,33 @@ No wallet, no gas fees, no external chain — just cryptographic proof, done rig
 
 ---
 
+## A quick look
+
+<p align="center">
+  <img src="./assets/screenshots/landing-page.png" width="800" alt="Landing page"/>
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><img src="./assets/screenshots/admin-login.png" alt="Admin login"/></td>
+    <td width="50%"><img src="./assets/screenshots/admin-dashboard.png" alt="Admin dashboard"/></td>
+  </tr>
+  <tr>
+    <td align="center">Admin login</td>
+    <td align="center">Issuing a credential</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./assets/screenshots/student-dashboard.png" alt="Student dashboard"/></td>
+    <td width="50%"><img src="./assets/screenshots/verification-portal.png" alt="Verification portal"/></td>
+  </tr>
+  <tr>
+    <td align="center">A student's earned credentials</td>
+    <td align="center">Public verification, with a real result</td>
+  </tr>
+</table>
+
+---
+
 ## How a credential gets issued
 
 ```mermaid
